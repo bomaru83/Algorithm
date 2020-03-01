@@ -1,0 +1,38 @@
+//
+//  main.cpp
+//  Greedy2
+//
+//  Created by 김민경 on 2020. 3. 1..
+//  Copyright © 2020년 김민경. All rights reserved.
+//
+// 백준 1783
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+vector<int> a;
+
+int main(void) {
+    
+    int N, M, result = 0;
+    cin >> N >> M;
+    if(N == 1)  result = 1;
+    else if(N == 2){
+        if(M < 3)   result = 1;
+        else if(M < 5)  result = 2;
+        else if(M < 7)  result = 3;
+        else    result = 4;
+    }
+    else if(N >= 3){
+        if(M <= 4)   result = M;
+        else if(M > 4 && M < 7)    result = 4;
+        else if(M >= 7) result = M - 2;
+    }
+    
+    cout << result << endl;
+    
+    return 0;
+}
