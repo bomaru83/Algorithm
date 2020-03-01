@@ -1,0 +1,40 @@
+//
+//  main.cpp
+//  Greedy2
+//
+//  Created by 김민경 on 2020. 3. 1..
+//  Copyright © 2020년 김민경. All rights reserved.
+//
+// 백준 2437
+// 정렬 후, 하나씩 더해가면서 빈공간이 있는지 확인한다.
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+vector<int> a;
+
+int main(void) {
+    
+    int N, result = 1;
+    cin >> N;
+    for(int n = 0;n<N;n++){
+        int x;
+        cin >> x;
+        a.push_back(x);
+    }
+    
+    sort(a.begin(), a.end());
+    
+    // 정렬 후, 하나씩 더해가면서 빈공간이 있는지 확인한다.
+    for(int i = 0; i < a.size(); i++){
+        if(result < a[i])   break;
+        result += a[i];
+    }
+    
+    cout << result << endl;
+    
+    return 0;
+}
