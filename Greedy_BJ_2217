@@ -1,0 +1,38 @@
+//
+//  main.cpp
+//  Greedy, 당장 눈 앞에 보이는 최적의 상황만을 쫓는 알고리즘,
+//
+//  Created by 김민경 on 2020. 2. 29..
+//  Copyright © 2020년 김민경. All rights reserved.
+//
+
+//백준 2217
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+vector<int> a;
+
+int main(){
+    
+    int n, result = 0;
+    cin >> n;
+    for(int i = 0;i<n;i++){
+        int x;
+        cin >> x;
+        a.push_back(x);
+    }
+    
+    sort(a.begin(), a.end());
+    
+    for(int i = 0; i<n;i++){
+        if(result < a[i] * (n - i))
+            result = a[i] * (n - i);
+    }
+    
+    cout << result;
+    
+    return 0;
+}
