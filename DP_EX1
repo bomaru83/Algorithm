@@ -1,0 +1,28 @@
+//
+//  main.cpp
+//  Dynamic Programing, 1문제를 1번만 풀어야한다. (반복적계산X)
+//
+//  Created by 김민경 on 2020. 3. 3..
+//  Copyright © 2020년 김민경. All rights reserved.
+//
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int d[100]; //0으로 초기화되어있다.
+
+int dp(int x){
+    if(x == 1)  return 1;
+    if(x == 2)  return 1;
+    if(d[x] != 0)   return d[x];  //반복계산하지 않도록 저장해둔 값 반환해준다.
+    return dp(x - 1) + dp(x - 2); //재귀함수로만 코딩하면 시간이 너무 오래 걸린다.
+}
+
+int main() {
+    
+    cout << dp(10) << endl;
+    
+    return 0;
+}
