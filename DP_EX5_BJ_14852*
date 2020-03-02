@@ -1,0 +1,43 @@
+//
+//  main.cpp
+//  Dynamic Programing, 1문제를 1번만 풀어야한다. (반복적계산X)
+//
+//  Created by 김민경 on 2020. 3. 3..
+//  Copyright © 2020년 김민경. All rights reserved.
+//
+//  백준 14852
+//  시간초과 :(
+//  2×N 크기의 벽을 2×1, 1×2, 1×1 크기의 타일로 채우는 경우의 수를 구해보자.
+//  D[1] = 2, D[2] = 7, 3부터 하나씩 증가할 때마다 고유한 모양이 2개씩
+//  D[n] = D[n-1] * 2 + D[n-2] * 3 + 2 * (D[n-3] + D[n-4] + ... + D[0])
+
+#include <iostream>
+
+using namespace std;
+
+int d[1000001]; //0으로 초기화되어있다.
+
+int dp(int x){
+    if(x == 0)  return 1;
+    if(x == 1)  return 2;
+    if(x == 2)  return 7;
+    if(d[x] != 0)   return d[x];  //반복계산하지 않도록 저장해둔 값 반환해준다.
+    int temp = dp(x - 2) * 3 + dp(x-1) * 2;
+    for(int i = x-3;i>=0;i--){
+        temp += (dp(i) * 2)%100000007;
+    }
+    d[x] = temp % 100000007;
+    return d[x];
+}
+
+int main() {
+    
+    int N;
+    cin >> N;
+    
+    cout << dp(N) << endl;
+    
+    return 0;
+}
+
+
