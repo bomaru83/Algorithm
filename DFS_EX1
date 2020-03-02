@@ -1,7 +1,9 @@
 //
 //  main.cpp
-//  DFS, Depth-First Search feat.stack,재귀함수
-//
+//  DFS, Depth-First Search feat.재귀함수
+//  stack을 기반으로 하지만, 굳이 사용하지 않아도 된다.
+//  #include <stack>
+//  stack<int> s;   s.push(1);  s.pop();    s.top();    while(!s.empty()){}
 //  Created by 김민경 on 2020. 3. 3..
 //  Copyright © 2020년 김민경. All rights reserved.
 //
