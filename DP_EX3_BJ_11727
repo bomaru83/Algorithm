@@ -5,7 +5,7 @@
 //  Created by 김민경 on 2020. 3. 3..
 //  Copyright © 2020년 김민경. All rights reserved.
 //
-//  백준 11727  시간초과 :(
+//  백준 11727  
 //  D[n] = D[n-1] + 2 * D[n-2]
 
 #include <iostream>
@@ -18,7 +18,8 @@ int dp(int x){
     if(x == 1)  return 1;
     if(x == 2)  return 3;
     if(d[x] != 0)   return d[x];  //반복계산하지 않도록 저장해둔 값 반환해준다.
-    return (dp(x - 1) + 2 * dp(x - 2)) % 10007; //재귀함수로만 코딩하면 시간이 너무 오래 걸린다.
+    d[x] =  (dp(x - 1) + 2 * dp(x - 2)) % 10007; //재귀함수로만 코딩하면 시간이 너무 오래 걸린다.
+    return d[x];
 }
 
 int main() {
