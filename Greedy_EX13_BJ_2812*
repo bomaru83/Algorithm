@@ -5,7 +5,7 @@
 //  Created by 김민경 on 2020. 3. 1..
 //  Copyright © 2020년 김민경. All rights reserved.
 //
-// 백준 2812 왜 틀렸다고 뜨는지 모르겠다 :(
+// 백준 2812 왜 틀렸다고 뜨는지 모르겠다 :( Stack으로 풀어야하는 건가?
 
 #include <iostream>
 #include <algorithm>
