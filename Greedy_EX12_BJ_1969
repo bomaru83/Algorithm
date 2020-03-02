@@ -1,0 +1,75 @@
+//가장 많이 등장한 문자(거리가 짧은)를 결과 문자열에 저장해야한다.
+//
+//  main.cpp
+//  Greedy2
+//
+//  Created by 김민경 on 2020. 3. 1..
+//  Copyright © 2020년 김민경. All rights reserved.
+//
+// 백준 1969
+
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int main(void) {
+    
+    int N, M;
+    char ch = 'A';
+    int A = 0, C = 0, G = 0, T = 0, dis = 0;
+    cin >> N >> M;
+    
+    string a[1001], result[50];
+    
+    for(int n=0;n<N;n++){
+        cin >> a[n];
+    }
+    
+    for(int m=0;m<M;m++){
+        A = 0;
+        C = 0;
+        G = 0;
+        T = 0;
+        for(int n = 0; n<N;n++){
+            if(a[n][m] == 'A'){
+                A++;
+            }
+            else if(a[n][m] == 'C'){
+                C++;
+            }
+            else if(a[n][m] == 'G'){
+                G++;
+            }
+            else if(a[n][m]=='T'){
+                T++;
+            }
+        }
+        if(A >= C && A >= G && A >= T){
+            ch = 'A';
+            dis += N - A;
+        }
+        else if(C > A && C >= G && C >=T){
+            ch = 'C';
+            dis += N - C;
+        }
+        else if(G > A && G > C && G >=T){
+            ch = 'G';
+            dis += N - G;
+        }
+        else if(T > A && T > C && T > G){
+            ch = 'T';
+            dis += N - T;
+        }
+        
+        result[m] = ch;
+    }
+    for(int m=0;m<M;m++){
+        cout << result[m];
+    }
+    cout << endl;
+    cout << dis << endl;
+    
+    return 0;
+}
+
