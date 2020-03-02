@@ -8,6 +8,8 @@
 
 #include <iostream>
 #include <queue>
+//queue<int> q;
+//q.push(7);    q.pop();    q.front();  while(!q.empty()){}
 #include <vector>
 
 using namespace std;
