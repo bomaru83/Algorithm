@@ -24,6 +24,7 @@ int dp(int x){
     for(int i = x-4;i>=0;i-=2){
         temp += dp(i) * 2;
     }
+    d[x] = temp;
     return temp;
 }
 
