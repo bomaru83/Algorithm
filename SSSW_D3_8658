@@ -1,0 +1,50 @@
+//
+//  main.cpp
+//  SSSW_D3
+//
+//  Created by 김민경 on 2020. 3. 8..
+//  Copyright © 2020년 김민경. All rights reserved.
+//
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    
+    int T;
+    cin >> T;
+    vector<int> max, min;
+    
+    for(int t = 0; t< T;t++){
+        int x[10];
+        for(int i = 0;i<10;i++){
+            int n, sum=0;
+            cin >> n;
+            
+            while(n > 0){
+                int temp;
+                temp = n%10;
+                sum += temp;
+                n = (n - temp)/10;
+            }
+            x[i] = sum;
+        }
+        
+        sort(x,x+10);
+        
+        min.push_back(x[0]);
+        max.push_back(x[9]);
+        
+    }
+        
+    for(int r = 0; r < T;r++){
+        cout << "#" << r+1 << " ";
+        cout << max[r] << " " << min[r] << endl;
+    }
+    
+    
+    return 0;
+}
