@@ -1,0 +1,60 @@
+//
+//  main.cpp
+//  SSSW_D3
+//
+//  Created by 김민경 on 2020. 3. 8..
+//  Copyright © 2020년 김민경. All rights reserved.
+//
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    
+    int T;
+    cin >> T;
+    vector<int> result;
+    
+    for(int t = 0; t< T;t++){
+        
+        int N, M;
+        bool x = false;
+        vector<int> a;
+        cin >> N >> M;
+        for(int n = 0;n<N;n++){
+            int temp;
+            cin >> temp;
+            a.push_back(temp);
+        }
+        sort(a.begin(), a.end(), greater<int>());
+        
+        for(int n = 0;n<N-1;n++){
+            for(int k = 1;k<N-n;k++){
+                if(a[n] + a[k+1] <= M){
+                    x = true;
+                    int temp = a[n] + a[k+1];
+                    result.push_back(temp);
+                    a.clear();
+                    break;
+                }
+            }
+            if(x == true)   break;
+            if(x == false && n == N-2){
+                int temp = -1;
+                result.push_back(temp);
+                a.clear();
+            }
+            
+        }
+    }
+    for(int r = 0; r < result.size();r++){
+        cout << "#" << r+1 << " ";
+        cout << result[r] << endl;
+    }
+    
+    
+    return 0;
+}
