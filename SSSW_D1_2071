@@ -1,0 +1,38 @@
+//
+//  main.cpp
+//  SSSW
+//
+//  Created by 김민경 on 2020. 3. 9..
+//  Copyright © 2020년 김민경. All rights reserved.
+//
+
+#include <iostream>
+#include <vector>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    vector<int> result;
+    int T;
+    cin >> T;
+    for(int t=0;t<T;t++){
+        float sum = 0, mean = 0;
+        for(int i=0;i<10;i++){
+            int x;
+            cin >> x;
+            sum += x;
+            
+        }
+        mean = round(sum/10);
+        result.push_back(mean);
+        
+    }
+    
+    for(int t=0;t<T;t++){
+        cout << "#" << t+1 << " ";
+        cout << result[t] << endl;
+    }
+    
+    return 0;
+}
