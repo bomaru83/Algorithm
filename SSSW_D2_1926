@@ -1,0 +1,31 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    
+    int N;
+    cin >> N;
+    
+    for(int n = 1;n<=N;n++){
+        int x = n;
+        bool c = false;
+        while(x!=0){
+            if(x%10==3 || x%10 ==6 || x%10 ==9) {
+                cout << "-";
+                c = true;
+                x = (x-(x%10))/10;
+            }
+            else   x = (x-(x%10))/10;
+        }
+        if(c == false)  cout << n;
+        cout << " ";
+        
+        
+        
+    }
+    
+    
+    return 0;
+}
+
