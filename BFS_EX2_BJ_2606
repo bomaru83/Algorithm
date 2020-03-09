@@ -1,0 +1,59 @@
+//
+//  main.cpp
+//  SSSW_2
+//
+//  Created by 김민경 on 2020. 3. 10..
+//  Copyright © 2020년 김민경. All rights reserved.
+//
+
+#include <iostream>
+#include <vector>
+#include <queue>
+
+using namespace std;
+
+int sum=0, c[101];
+queue<int> q;
+vector<int> a[101];
+
+void virus(int start){
+    c[start] = true;
+    q.push(start);
+    
+    while(!q.empty()){
+        int x = q.front();
+        q.pop();
+        sum++;
+        for(int j=0;j<a[x].size();j++){
+            int y = a[x][j];
+            if(!c[y]){
+                q.push(y);
+                c[y] = true;
+            }
+        }
+        
+        
+    }
+    
+    
+}
+
+int main() {
+    
+    int num;
+    cin >> num;
+    int I;
+    cin >> I;
+    for(int i = 0;i<I;i++){
+        int p, q;
+        cin >> p >> q;
+        a[p].push_back(q);
+        a[q].push_back(p);
+    }
+    
+    virus(1);
+    
+    cout << sum - 1 << endl;
+    
+    return 0;
+}
